@@ -1,0 +1,125 @@
+/* src/App.css */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  /* Color de fondo claro */
+  color: black;
+  /* Color de texto negro */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* Cambiar a columna para apilar edificios */
+  align-items: center;
+  /* Centrar edificios */
+  overflow-y: auto;
+  /* Permitir desplazamiento vertical */
+  max-height: 90vh;
+  /* Limitar la altura del contenedor */
+}
+
+.edificio {
+  display: flex;
+  /* Usar flexbox para alinear salas horizontalmente */
+  justify-content: center;
+  /* Centrar salas */
+  margin-bottom: 20px;
+  /* Espacio entre edificios */
+}
+
+.sala {
+  margin: 10px;
+  background-color: green;
+  /* Verde por defecto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* Color de texto blanco */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  /* Espacio entre salas */
+}
+
+.sala[data-estado="verde"] {
+  background-color: green;
+}
+
+.sala[data-estado="rojo"] {
+  background-color: red;
+  /* Color rojo para salas ocupadas */
+}
+
+div {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  /* Centrar texto */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Sombra para el contenedor */
+}
+
+.menu-asignacion {
+  background-color: #0d8e81c5;
+  /* Fondo blanco para el menú */
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  /* Animación suave */
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: rgb(49, 49, 49);
+  /* Color de texto negro para encabezados */
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #804b4b;
+  /* Color de texto blanco */
+  cursor: pointer;
+  color: black;
+  /* Color de texto negro para botones */
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  /* Borde gris claro */
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  /* Color azul */
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+  /* Color gris oscuro para mejor contraste */
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Estilo para mensajes de error */
+.toast-error {
+  background-color: #ff4d4d;
+  /* Color de fondo rojo para errores */
+  color: #ffffff;
+  /* Texto blanco */
+}
