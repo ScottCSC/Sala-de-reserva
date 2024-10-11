@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+<<<<<<< HEAD
 import Login from './Login';
 import VistaSalasPublica from './VistaSalasPublica';
 import './App.css';
@@ -46,11 +47,20 @@ const SalaManager = () => {
   const [salas, setSalas] = useState({
     edificioA: Array(6).fill({ estado: 'verde', rut: '', personas: 0, carrera: '' }),
     edificioB: Array(4).fill({ estado: 'verde', rut: '', personas: 0, carrera: '' }),
+=======
+import './App.css'; // Importa tu archivo de estilos
+
+const SalaManager = () => {
+  const [salas, setSalas] = useState({
+    edificioA: Array(5).fill('verde'), // Inicializar en verde
+    edificioB: Array(5).fill('verde'), // Inicializar en verde
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   });
 
   const [selectedSala, setSelectedSala] = useState<any>(null);
   const [rut, setRut] = useState('');
   const [personas, setPersonas] = useState(0);
+<<<<<<< HEAD
   const [carrera, setCarrera] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -80,6 +90,8 @@ const SalaManager = () => {
     "Trabajo Social",
     "Otros"
   ];
+=======
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
 
   // Cargar datos de Local Storage al iniciar
   useEffect(() => {
@@ -114,6 +126,7 @@ const SalaManager = () => {
     return digitoVerificador.toUpperCase() === dvFinal;
   };
 
+<<<<<<< HEAD
   const handleRutChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^[0-9]*-?[0-9Kk]?$/.test(value) && value.length <= 10) {
@@ -129,6 +142,14 @@ const SalaManager = () => {
     if (selectedSala && selectedSala.edificio === edificio && selectedSala.index === index) {
       setSelectedSala(null);
     } else {
+=======
+  const handleSalaClick = (edificio: string, index: number) => {
+    if (selectedSala && selectedSala.edificio === edificio && selectedSala.index === index) {
+      // Si la sala ya está seleccionada, cerramos el menú
+      setSelectedSala(null);
+    } else {
+      // Si no, seleccionamos la nueva sala
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
       setSelectedSala({ edificio, index });
     }
   };
@@ -151,27 +172,39 @@ const SalaManager = () => {
     const { edificio, index } = selectedSala;
 
     const newSalas = { ...salas };
+<<<<<<< HEAD
     newSalas[edificio as keyof typeof salas][index] = {
       estado: 'rojo',
       rut,
       personas,
       carrera,
     }; // Cambiar al color rojo (ocupado) y guardar información
+=======
+    newSalas[edificio as keyof typeof salas][index] = 'rojo'; // Cambiar al color rojo (ocupado)
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
     setSalas(newSalas);
     setSelectedSala(null); // Cerrar modal
     toast.success('Sala asignada exitosamente.');
     setRut(""); // Limpiar inputs
     setPersonas(0);
+<<<<<<< HEAD
     setCarrera(''); // Limpiar carrera
+=======
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   };
 
   const liberarSala = (edificio: string, index: number) => {
     const newSalas = { ...salas };
+<<<<<<< HEAD
     newSalas[edificio as keyof typeof salas][index] = { estado: 'verde', rut: '', personas: 0, carrera: '' }; // Cambiar al color verde (disponible)
+=======
+    newSalas[edificio as keyof typeof salas][index] = 'verde'; // Cambiar al color verde (disponible)
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
     setSalas(newSalas);
     toast.success('Sala liberada exitosamente.');
   };
 
+<<<<<<< HEAD
   const toggleMantenimiento = (edificio: string, index: number) => {
     const newMantenimiento = { ...mantenimiento };
     newMantenimiento[edificio as keyof typeof mantenimiento][index] = !newMantenimiento[edificio as keyof typeof mantenimiento][index];
@@ -325,8 +358,113 @@ const SalaManager = () => {
           <ToastContainer />
         </>
       )}
+=======
+  return (
+    <div className="container">
+      <h1>Asignación de Salas</h1>
+      <div className="edificio">
+        <h2>Edificio A</h2>
+        {salas.edificioA.map((estado, index) => (
+          <div key={index} className="sala" data-estado={estado}>
+            <div
+              style={{
+                backgroundColor: estado,
+                width: '100px',
+                height: '100px',
+                display: 'inline-block',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+                border: '2px solid black', // Borde para destacar la sala
+                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)', // Sombra para dar profundidad
+              }}
+              onClick={() => handleSalaClick('edificioA', index)}
+              onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
+              onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              Sala {index + 1}
+            </div>
+            {selectedSala && selectedSala.edificio === 'edificioA' && selectedSala.index === index && (
+              <div className="menu-asignacion">
+                <h3>Asignar Sala {index + 1} en Edificio A</h3>
+                <div>
+                  <label>RUT: </label>
+                  <input type="text" value={rut} onChange={(e) => setRut(e.target.value)} />
+                </div>
+                <div>
+                  <label>Número de personas (máximo 8): </label>
+                  <input
+                    type="number"
+                    value={personas}
+                    onChange={(e) => setPersonas(Number(e.target.value))}
+                  />
+                </div>
+                <button className="btn btn-primary" onClick={confirmarAsignacion}>Asignar Sala</button>
+                <button className="btn btn-secondary" onClick={() => setSelectedSala(null)}>Cancelar</button>
+              </div>
+            )}
+            {estado === 'rojo' && (
+              <button className="btn btn-secondary" onClick={() => liberarSala('edificioA', index)}>Liberar Sala</button>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="edificio">
+        <h2>Edificio B</h2>
+        {salas.edificioB.map((estado, index) => (
+          <div key={index} className="sala">
+            <div
+              style={{
+                backgroundColor: estado, // Aquí se define el color según el estado ('verde' o 'rojo')
+                width: '100px',
+                height: '100px',
+                display: 'inline-block',
+                cursor: 'pointer',
+                transition: 'transform 0.2s',
+                border: '2px solid black',
+                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+              }}
+              onClick={() => handleSalaClick('edificioA', index)}
+              onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
+              onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              Sala {index + 1}
+            </div>
+
+            {selectedSala && selectedSala.edificio === 'edificioB' && selectedSala.index === index && (
+              <div className="menu-asignacion">
+                <h3>Asignar Sala {index + 1} en Edificio B</h3>
+                <div>
+                  <label>RUT: </label>
+                  <input type="text" value={rut} onChange={(e) => setRut(e.target.value)} />
+                </div>
+                <div>
+                  <label>Número de personas (máximo 8): </label>
+                  <input
+                    type="number"
+                    value={personas}
+                    onChange={(e) => setPersonas(Number(e.target.value))}
+                  />
+                </div>
+                <button className="btn btn-primary" onClick={confirmarAsignacion}>Asignar Sala</button>
+                <button className="btn btn-secondary" onClick={() => setSelectedSala(null)}>Cancelar</button>
+              </div>
+            )}
+            {estado === 'rojo' && (
+              <button className="btn btn-secondary" onClick={() => liberarSala('edificioB', index)}>Liberar Sala</button>
+            )}
+          </div>
+
+        ))}
+      </div>
+      <ToastContainer />
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default SalaManager;
+=======
+export default SalaManager;
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6

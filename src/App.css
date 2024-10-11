@@ -7,7 +7,11 @@ body {
   margin: 0;
   background-color: #f0f0f0;
   /* Color de fondo claro */
+<<<<<<< HEAD
   color: rgb(255, 255, 255);
+=======
+  color: black;
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   /* Color de texto negro */
 }
 
@@ -25,6 +29,7 @@ body {
 
 .edificio {
   display: flex;
+<<<<<<< HEAD
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
@@ -58,6 +63,36 @@ body {
 
 .sala-info {
   margin-top: 10px;
+=======
+  /* Usar flexbox para alinear salas horizontalmente */
+  justify-content: center;
+  /* Centrar salas */
+  margin-bottom: 20px;
+  /* Espacio entre edificios */
+}
+
+.sala {
+  margin: 10px;
+  background-color: green;
+  /* Verde por defecto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* Color de texto blanco */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  /* Espacio entre salas */
+}
+
+.sala[data-estado="verde"] {
+  background-color: green;
+}
+
+.sala[data-estado="rojo"] {
+  background-color: red;
+  /* Color rojo para salas ocupadas */
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
 }
 
 div {
@@ -66,13 +101,18 @@ div {
   /* Centrar texto */
   padding: 20px;
   border-radius: 10px;
+<<<<<<< HEAD
   box-shadow: 0 4px 10px rgba(11, 11, 11, 0.1);
   /* Sombra para el contenedor */
+=======
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   /* Sombra para el contenedor */
 }
 
 .menu-asignacion {
   background-color: #0d8e81c5;
+<<<<<<< HEAD
   padding: 15px;
   border-radius: 5px;
   margin-top: 15px;
@@ -85,12 +125,24 @@ div {
   margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
+=======
+  /* Fondo blanco para el menú */
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  /* Animación suave */
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
 }
 
 h1,
 h2 {
   text-align: center;
+<<<<<<< HEAD
   color: rgb(71, 70, 70);
+=======
+  color: rgb(49, 49, 49);
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   /* Color de texto negro para encabezados */
 }
 
@@ -99,14 +151,22 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
+<<<<<<< HEAD
   color: #ffffff;
   /* Color de texto blanco */
   cursor: pointer;
   color: rgb(255, 255, 255);
+=======
+  color: #804b4b;
+  /* Color de texto blanco */
+  cursor: pointer;
+  color: black;
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   /* Color de texto negro para botones */
 }
 
 input {
+<<<<<<< HEAD
   margin-left: -10px;
   padding: 5px;
   border-radius: 5px;
@@ -116,6 +176,13 @@ input {
   /* Color del texto */
   color: rgba(255, 255, 255, 0.7);
   /* Color del placeholder */
+=======
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  /* Borde gris claro */
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
 }
 
 button.btn-primary {
@@ -124,7 +191,11 @@ button.btn-primary {
 }
 
 button.btn-secondary {
+<<<<<<< HEAD
   background-color: #176fda;
+=======
+  background-color: #6c757d;
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
   /* Color gris oscuro para mejor contraste */
 }
 
@@ -132,6 +203,7 @@ button:hover {
   opacity: 0.8;
 }
 
+<<<<<<< HEAD
 button.btn-small {
   padding: 5px 10px;
   font-size: 0.8rem;
@@ -264,4 +336,12 @@ select:focus {
 .button-group {
   display: flex;
   justify-content: space-between;
+=======
+/* Estilo para mensajes de error */
+.toast-error {
+  background-color: #ff4d4d;
+  /* Color de fondo rojo para errores */
+  color: #ffffff;
+  /* Texto blanco */
+>>>>>>> b8b69bf8217fc4906f49da8ecbd9f9f002db52a6
 }
