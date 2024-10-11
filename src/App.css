@@ -1,0 +1,267 @@
+/* src/App.css */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  /* Color de fondo claro */
+  color: rgb(255, 255, 255);
+  /* Color de texto negro */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* Cambiar a columna para apilar edificios */
+  align-items: center;
+  /* Centrar edificios */
+  overflow-y: auto;
+  /* Permitir desplazamiento vertical */
+  max-height: 90vh;
+  /* Limitar la altura del contenedor */
+}
+
+.edificio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  background-color: rgb(222, 227, 222);
+}
+
+.sala {
+  width: 280px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  /* Centrar el texto */
+  font-weight: bold;
+}
+
+.sala[data-estado="verde"] {
+  background-color: rgb(39, 158, 39);
+}
+
+.sala[data-estado="rojo"] {
+  background-color: rgb(184, 23, 23);
+}
+
+.sala[data-estado="gris"] {
+  background-color: rgb(128, 123, 123);
+}
+
+.sala-info {
+  margin-top: 10px;
+}
+
+div {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  /* Centrar texto */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(11, 11, 11, 0.1);
+  /* Sombra para el contenedor */
+  /* Sombra para el contenedor */
+}
+
+.menu-asignacion {
+  background-color: #0d8e81c5;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.menu-asignacion input,
+.menu-asignacion select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: rgb(71, 70, 70);
+  /* Color de texto negro para encabezados */
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  /* Color de texto blanco */
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  /* Color de texto negro para botones */
+}
+
+input {
+  margin-left: -10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #76c191;
+  background-color: rgb(103, 95, 95);
+  color: rgb(255, 255, 255);
+  /* Color del texto */
+  color: rgba(255, 255, 255, 0.7);
+  /* Color del placeholder */
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  /* Color azul */
+}
+
+button.btn-secondary {
+  background-color: #176fda;
+  /* Color gris oscuro para mejor contraste */
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button.btn-small {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+/* Estilo para mensajes de error */
+.toast-error {
+  background-color: #7b2828;
+  /* Color de fondo rojo para errores */
+  color: #ffffff;
+  /* Texto blanco */
+}
+
+label {
+  color: rgb(255, 255, 255);
+  /* Color gris para los labels */
+}
+
+.btn-mantenimiento {
+  background-color: rgb(255, 255, 255);
+  /* Color amarillo */
+  color: #ffffff;
+  /* Color de texto negro */
+}
+
+.btn-mantenimiento:hover {
+  background-color: #c8ad84;
+  /* Color más oscuro al pasar el mouse */
+}
+
+.menu-asignacion input {
+  color: rgb(255, 255, 255);
+  /* Color del texto */
+}
+
+.menu-asignacion input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  /* Color del placeholder */
+}
+
+.btn-warning {
+  background-color: #727171;
+  /* Color amarillo */
+  color: #ffffff;
+  /* Color de texto negro */
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Color de fondo más claro */
+  color: rgb(0, 0, 0);
+  /* Color del texto negro */
+  border: 1px solid #76c191;
+  /* Color del borde */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  padding: 5px;
+  /* Espaciado interno */
+  font-size: 1rem;
+  /* Tamaño de fuente */
+}
+
+select:focus {
+  outline: none;
+  /* Quitar el contorno por defecto */
+  border-color: #007bff;
+  /* Color del borde al enfocar */
+}
+
+.btn {
+  margin: 5px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.sala-label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.sala-label label {
+  width: 100px;
+  text-align: left;
+}
+
+.sala-info-compressed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sala-info-compressed button {
+  margin-left: 10px;
+}
+
+.sala-info-expanded {
+  margin-top: 10px;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
